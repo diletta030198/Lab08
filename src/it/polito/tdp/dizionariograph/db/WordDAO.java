@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class WordDAO {
 
@@ -14,7 +15,7 @@ public class WordDAO {
 	 */
 	public List<String> getAllWordsFixedLength(int length) {
 
-		String sql = "SELECT nome FROM parola WHERE LENGTH(nome) = ?;";
+		String sql = " SELECT nome FROM parola WHERE LENGTH(nome)= ?;";
 		List<String> parole = new ArrayList<String>();
 
 		try {
@@ -24,7 +25,10 @@ public class WordDAO {
 			ResultSet res = st.executeQuery();
 
 			while (res.next()) {
-				parole.add(res.getString("nome"));
+				
+					parole.add(res.getString("nome"));
+				
+			
 			}
 
 			return parole;
